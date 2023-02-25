@@ -36,8 +36,8 @@ class UserController {
     }
 
     @PatchMapping("/{id}")
-    ResponseEntity<UserResponseDto> updateUser(  @PathVariable String id,@Valid @RequestBody PatchUserRequest request) {
-        return ResponseEntity.of(userService.updateUser(id, request.name(), request.surname(), request.age())
+    ResponseEntity<UserResponseDto> updateUser(@PathVariable String id, @Valid @RequestBody PatchUserRequest request) {
+        return ResponseEntity.of(userService.updateUser(id, request.getName(), request.getSurname(), request.getAge())
                 .map(UserResponseDto::fromDomain));
     }
 }
